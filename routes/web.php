@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +24,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
     ->name('home');
+
+// Ruta para la pagina de contact
+Route::get('/contact', function () {
+    return Response::view('contact');
+});
+
+Route::post('/contact', function (Request $request) {
+    return Response::json(["message" => "hola"])->setStatusCode(400);
+});
