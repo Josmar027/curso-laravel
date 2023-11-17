@@ -30,6 +30,20 @@ Route::get('/contact', function () {
     return Response::view('contact');
 });
 
+// Devolver un json
 Route::post('/contact', function (Request $request) {
     return Response::json(["message" => "hola"])->setStatusCode(400);
+});
+
+// Query params
+/* Route::post('/contact', function (Request $request) {
+    dd($request->query('test'));
+}); */
+
+// Rutas para el CSRF
+Route::get('/change-password', function () {
+    return Response::view('change-password');
+});
+Route::post('/change-password', function () {
+    return 'Password changed';
 });
